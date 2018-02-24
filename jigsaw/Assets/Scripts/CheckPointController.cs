@@ -17,6 +17,6 @@ public class CheckPointController : MonoBehaviour
 	{
 		gameManager.row = row;
 		gameManager.col = col;
-		gameManager.startControl = true;
+		gameManager.canStart = true;
 	}
 }

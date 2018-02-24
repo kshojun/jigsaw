@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour
 	int countPoint = 0;
 	int countImageKey = 0;
 
-	public bool startControl = false;
-	public bool checkComplete;
+	public bool canStart = false;
+	bool isComplete;
 
 	public List<GameObject> imageKeyList;
 	public List<GameObject> imageOfPictureList;
@@ -71,11 +71,13 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (startControl) {
-			startControl = false;
+		if (this.canStart && !this.isComplete) {
+			this.canStart = false;
 			if (imageOfPictureMatrix[row, col] != null && imageOfPictureMatrix[row, col].name.CompareTo("blank") != 0) {
 				if ((rowBlank != row && colBlank == col) || (rowBlank == row && colBlank != col)) {
 					ExchangeImage();
+					PlaySound();
+					CheckComplete();
 				}
 			}
 		}
@@ -110,5 +112,30 @@ public class GameController : MonoBehaviour
 		imageOfPictureMatrix[2, 0] = imageOfPictureList[3];
 		imageOfPictureMatrix[2, 1] = imageOfPictureList[6];
 		imageOfPictureMatrix[2, 2] = imageOfPictureList[8];
+	}
+
+	void CheckComplete()
+	{
+		int cnt = 0;
+		for (int r = 0; r < sizeRow; r++) {
+			for (int c = 0; c < sizeCol; c++) {
+				if (imageKeyMatrix[r, c].name == imageOfPictureMatrix[r,c].name) {
+					cnt++;
+				}
+			}
+		}
+
+		Debug.Log("cnt =" + cnt.ToString());
+		if (cnt == 9) {
+			Debug.Log("complete!");
+			this.isComplete = true;
+		}
+	}
+
+	void PlaySound()
+	{
+		AudioSource source = GameObject.Find("sound").GetComponent<AudioSource>();
+		AudioClip clip = source.clip;
+		source.PlayOneShot(clip);
 	}
 }
