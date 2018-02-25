@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
 	public int row, col, countStep;
 	public int rowBlank, colBlank;
 
+	public int maxImageNum;
+	private int maxNum;
+
 	int sizeRow = 3, sizeCol = 3;
 	int countPoint = 0;
 	int countImageKey = 0;
@@ -28,6 +31,8 @@ public class GameController : MonoBehaviour
 		imageKeyMatrix = new GameObject[sizeRow, sizeCol];
 		imageOfPictureMatrix = new GameObject[sizeRow, sizeCol];
 		checkPointMatrix = new GameObject[sizeRow, sizeCol];
+
+		SetRandomNum();
 
 		ImageOfPictureManager();
 		CheckPointManager();
@@ -60,6 +65,8 @@ public class GameController : MonoBehaviour
 
 	void ImageKeyManager()
 	{
+		SetRandomImages("imagekey");
+
 		for (int r = 0; r < sizeRow; r++) {
 			for (int c = 0; c < sizeCol; c++) {
 				imageKeyMatrix[r, c] = imageKeyList[countImageKey];
@@ -101,8 +108,31 @@ public class GameController : MonoBehaviour
 		colBlank = col;
 	}
 
-	void ImageOfPictureManager()
+	void SetRandomNum()
 	{
+		this.maxNum = Random.Range(1, this.maxImageNum + 1);
+	}
+	
+	void SetRandomImages(string tag)
+	{
+		// タグつけてまとめて取得
+		GameObject[] g = GameObject.FindGameObjectsWithTag(tag);
+		// スプライトをランダム取得
+		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/jigsaw" + this.maxNum.ToString());
+
+		// スプライトを置換
+		for (int i = 0; i < g.Length; i++) {
+			if (g[i].name.CompareTo("blank") != 0) {
+				int n = int.Parse(g[i].name) - 1;
+				g[i].GetComponent<SpriteRenderer>().sprite = sprites[n];
+			}
+		}
+	}
+
+	void ImageOfPictureManager()
+	{	
+		SetRandomImages("imageofpicture");
+
 		imageOfPictureMatrix[0, 0] = imageOfPictureList[0];
 		imageOfPictureMatrix[0, 1] = imageOfPictureList[2];
 		imageOfPictureMatrix[0, 2] = imageOfPictureList[5];
@@ -125,7 +155,6 @@ public class GameController : MonoBehaviour
 			}
 		}
 
-		Debug.Log("cnt =" + cnt.ToString());
 		if (cnt == 9) {
 			Debug.Log("complete!");
 			this.isComplete = true;

@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 162489262}
   m_Layer: 0
   m_Name: blank
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 273127615}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 473752772}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 521556642}
   m_Layer: 0
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,6 +881,7 @@ MonoBehaviour:
   countStep: 0
   rowBlank: 0
   colBlank: 0
+  maxImageNum: 2
   canStart: 0
   imageKeyList:
   - {fileID: 1212258944}
@@ -924,7 +925,7 @@ GameObject:
   - component: {fileID: 606019898}
   m_Layer: 0
   m_Name: 5
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1011,7 +1012,7 @@ GameObject:
   - component: {fileID: 626315108}
   m_Layer: 0
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1237,7 +1238,7 @@ GameObject:
   - component: {fileID: 768206670}
   m_Layer: 0
   m_Name: 7
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1324,7 +1325,7 @@ GameObject:
   - component: {fileID: 862569152}
   m_Layer: 0
   m_Name: blank
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1410,7 +1411,7 @@ GameObject:
   - component: {fileID: 889327521}
   m_Layer: 0
   m_Name: 8
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1551,7 +1552,7 @@ GameObject:
   - component: {fileID: 986569875}
   m_Layer: 0
   m_Name: 5
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1625,7 +1626,7 @@ GameObject:
   - component: {fileID: 999236839}
   m_Layer: 0
   m_Name: 8
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,7 +1874,7 @@ GameObject:
   - component: {fileID: 1060328329}
   m_Layer: 0
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2089,7 +2090,7 @@ GameObject:
   - component: {fileID: 1175348485}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2175,7 +2176,7 @@ GameObject:
   - component: {fileID: 1208837185}
   m_Layer: 0
   m_Name: 6
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2248,7 +2249,7 @@ GameObject:
   - component: {fileID: 1212258946}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2321,7 +2322,7 @@ GameObject:
   - component: {fileID: 1488914260}
   m_Layer: 0
   m_Name: 7
-  m_TagString: Untagged
+  m_TagString: imagekey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2568,7 +2569,7 @@ GameObject:
   - component: {fileID: 1732149097}
   m_Layer: 0
   m_Name: 6
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2773,15 +2774,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e710868df36ac8441b5f311eb7dbedbe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 0.9852941, g: 0.9852941, b: 0.9852941, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10, y: 7.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1753663935
 Transform:
@@ -2808,7 +2809,7 @@ GameObject:
   - component: {fileID: 1822816509}
   m_Layer: 0
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: imageofpicture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
