@@ -80,12 +80,10 @@ public class GameController : MonoBehaviour
 	{
 		if (this.canStart && !this.isComplete) {
 			this.canStart = false;
-			if (imageOfPictureMatrix[row, col] != null && imageOfPictureMatrix[row, col].name.CompareTo("blank") != 0) {
-				if ((rowBlank != row && colBlank == col) || (rowBlank == row && colBlank != col)) {
-					ExchangeImage();
-					PlaySound();
-					CheckComplete();
-				}
+			if (imageOfPictureMatrix[row, col] != null && imageOfPictureMatrix[row, col].name.CompareTo("blank") != 0 && CanExchange(row, col)) {
+				ExchangeImage();
+				PlaySound();
+				CheckComplete();
 			}
 		}
 	}
@@ -113,6 +111,17 @@ public class GameController : MonoBehaviour
 		this.maxNum = Random.Range(1, this.maxImageNum + 1);
 	}
 	
+	bool CanExchange(int row, int col)
+	{
+		if (rowBlank != row && colBlank == col && Mathf.Abs(rowBlank - row) == 1) {
+			return true;
+		} else if (rowBlank == row && colBlank != col && Mathf.Abs(colBlank - col) == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	void SetRandomImages(string tag)
 	{
 		// タグつけてまとめて取得
