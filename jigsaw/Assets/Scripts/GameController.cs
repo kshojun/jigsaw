@@ -38,6 +38,13 @@ public class GameController : MonoBehaviour
 		CheckPointManager();
 		ImageKeyManager();
 		SetBlank();
+		RestartButtonDisplay(false);
+	}
+
+	void RestartButtonDisplay(bool flg)
+	{
+		UnityEngine.UI.Image btn = GameObject.Find("btnRestart").GetComponent<UnityEngine.UI.Image>();
+		btn.enabled = flg;
 	}
 
 	void SetBlank()
@@ -127,7 +134,7 @@ public class GameController : MonoBehaviour
 		// タグつけてまとめて取得
 		GameObject[] g = GameObject.FindGameObjectsWithTag(tag);
 		// スプライトをランダム取得
-		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/jigsaw" + this.maxNum.ToString());
+		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/jigsaws/jigsaw" + this.maxNum.ToString());
 
 		// スプライトを置換
 		for (int i = 0; i < g.Length; i++) {
@@ -165,7 +172,7 @@ public class GameController : MonoBehaviour
 		}
 
 		if (cnt == 9) {
-			Debug.Log("complete!");
+			RestartButtonDisplay(true);
 			this.isComplete = true;
 		}
 	}
